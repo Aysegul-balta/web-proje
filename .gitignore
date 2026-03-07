@@ -1,0 +1,9 @@
+# OS dosyaları
+.DS_Store
+Thumbs.db
+
+# Log dosyaları
+*.log
+
+# Editör klasörleri
+.vscode/
