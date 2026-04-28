@@ -7,3 +7,5 @@ Thumbs.db
 
 # Editör klasörleri
 .vscode/
+
+node_modules/
