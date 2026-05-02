@@ -1,13 +1,35 @@
 body {
+    margin: 0;
     font-family: Arial;
 }
 
+/* Eski yapı (koruyoruz) */
 header,
 footer {
     background: #eee;
     padding: 10px;
 }
 
-nav a {
-    margin-right: 10px;
+/* Navbar yeni stil */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 14px 24px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+.navbar-brand a {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
 }
