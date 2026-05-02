@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const session = require("express-session");
 const express = require("express");
 const flash = require("connect-flash");
@@ -10,7 +12,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session({
-  secret: "gizliAnahtar",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }));
@@ -31,4 +33,8 @@ app.get("/", (req, res) => {
 
 app.listen(3000, () => {
   console.log("Server çalışıyor: http://localhost:3000");
+});
+
+app.use((req, res) => {
+  res.status(404).render("404");
 });

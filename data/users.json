@@ -52,5 +52,11 @@
     "name": "lalala",
     "email": "lalaa@test.com",
     "password": "$2b$10$LmPWs2kjEHiwjvX2etvhIu87lCAwBEbcsJ6K7fjftf6lNZZXcBkOK"
+  },
+  {
+    "id": 1777760899013,
+    "name": "feriii",
+    "email": "feri@testtt.com",
+    "password": "$2b$10$OfZwsvGU/6ck17r7JgbxTex20xlOMRhThhSxyBSgPOU.Qg3uymiH."
   }
 ]
