@@ -2,181 +2,241 @@
     {
         "id": 1,
         "name": "Suç ve Ceza",
+        "author": "Fyodor Dostoyevski",
         "price": 181.72,
-        "image": "/images/book1.jpg"
+        "image": "/images/book1.jpg",
+        "description": "Bir cinayet ve vicdan azabının psikolojik derinliğini anlatan klasik roman."
     },
     {
         "id": 2,
         "name": "1984",
+        "author": "George Orwell",
         "price": 135.00,
-        "image": "/images/book2.jpg"
+        "image": "/images/book2.jpg",
+        "description": "Totaliter bir dünyada bireyin yok oluşunu anlatan distopik eser."
     },
     {
         "id": 3,
         "name": "Küçük Prens",
+        "author": "Antoine de Saint-Exupéry",
         "price": 50.62,
-        "image": "/images/book3.jpg"
+        "image": "/images/book3.jpg",
+        "description": "Hayatın anlamını sade bir dille anlatan evrensel bir hikaye."
     },
     {
         "id": 4,
         "name": "Sefiller",
+        "author": "Victor Hugo",
         "price": 519.20,
-        "image": "/images/book4.jpg"
+        "image": "/images/book4.jpg",
+        "description": "Adalet, merhamet ve insanlık üzerine derin bir klasik."
     },
     {
         "id": 5,
         "name": "Simyacı",
+        "author": "Paulo Coelho",
         "price": 140.00,
-        "image": "/images/book5.jpg"
+        "image": "/images/book5.jpg",
+        "description": "Hayallerinin peşinden gitmenin önemini anlatan felsefi roman."
     },
     {
         "id": 6,
         "name": "Dönüşüm",
+        "author": "Franz Kafka",
         "price": 159.21,
-        "image": "/images/book6.jpg"
+        "image": "/images/book6.jpg",
+        "description": "Bir sabah böceğe dönüşen adamın yabancılaşmasını anlatır."
     },
     {
         "id": 7,
         "name": "Beyaz Diş",
+        "author": "Jack London",
         "price": 82.39,
-        "image": "/images/book7.jpg"
+        "image": "/images/book7.jpg",
+        "description": "Vahşi doğada hayatta kalma mücadelesini anlatır."
     },
     {
         "id": 8,
         "name": "Fareler ve İnsanlar",
+        "author": "John Steinbeck",
         "price": 181.74,
-        "image": "/images/book8.jpg"
+        "image": "/images/book8.jpg",
+        "description": "İki dostun hayalleri ve trajik sonlarını anlatan kısa roman."
     },
     {
         "id": 9,
         "name": "Yabancı",
+        "author": "Albert Camus",
         "price": 110.00,
-        "image": "/images/book9.jpg"
+        "image": "/images/book9.jpg",
+        "description": "Varoluşçuluğun en önemli eserlerinden biri."
     },
     {
         "id": 10,
         "name": "Tutunamayanlar",
+        "author": "Oğuz Atay",
         "price": 240.00,
-        "image": "/images/book10.jpg"
+        "image": "/images/book10.jpg",
+        "description": "Modern insanın yalnızlığını anlatan kült roman."
     },
     {
         "id": 11,
         "name": "Kürk Mantolu Madonna",
+        "author": "Sabahattin Ali",
         "price": 105.00,
-        "image": "/images/book11.jpg"
+        "image": "/images/book11.jpg",
+        "description": "Derin bir aşk hikayesini anlatır."
     },
     {
         "id": 12,
         "name": "Şeker Portakalı",
+        "author": "José Mauro de Vasconcelos",
         "price": 130.00,
-        "image": "/images/book12.jpg"
+        "image": "/images/book12.jpg",
+        "description": "Küçük bir çocuğun hayatını anlatan duygusal roman."
     },
     {
         "id": 13,
         "name": "Hayvan Çiftliği",
+        "author": "George Orwell",
         "price": 90.87,
-        "image": "/images/book13.jpg"
+        "image": "/images/book13.jpg",
+        "description": "Siyasi sistemleri eleştiren alegorik roman."
     },
     {
         "id": 14,
         "name": "Vadideki Zambak",
+        "author": "Honoré de Balzac",
         "price": 51.92,
-        "image": "/images/book14.jpg"
+        "image": "/images/book14.jpg",
+        "description": "Saf aşkı anlatan klasik Fransız romanı."
     },
     {
         "id": 15,
         "name": "İnsan Ne ile Yaşar",
+        "author": "Lev Tolstoy",
         "price": 51.92,
-        "image": "/images/book15.jpg"
+        "image": "/images/book15.jpg",
+        "description": "İnsanın gerçek ihtiyaçlarını sorgulayan kısa hikaye."
     },
     {
         "id": 16,
         "name": "Babalar ve Oğullar",
+        "author": "Ivan Turgenev",
         "price": 134.82,
-        "image": "/images/book16.jpg"
+        "image": "/images/book16.jpg",
+        "description": "Nesiller arası çatışmayı anlatan klasik eser."
     },
     {
         "id": 17,
         "name": "Anna Karenina",
+        "author": "Lev Tolstoy",
         "price": 272.58,
-        "image": "/images/book17.jpg"
+        "image": "/images/book17.jpg",
+        "description": "Aşk, sadakat ve toplum baskısını işleyen büyük roman."
     },
     {
         "id": 18,
         "name": "Madame Bovary",
+        "author": "Gustave Flaubert",
         "price": 153.78,
-        "image": "/images/book18.jpg"
+        "image": "/images/book18.jpg",
+        "description": "Gerçeklikten kaçan bir kadının trajedisini anlatır."
     },
     {
         "id": 19,
         "name": "Gurur ve Önyargı",
+        "author": "Jane Austen",
         "price": 142.78,
-        "image": "/images/book19.jpg"
+        "image": "/images/book19.jpg",
+        "description": "Aşk ve toplum ilişkilerini anlatan klasik roman."
     },
     {
         "id": 20,
         "name": "Savaş ve Barış",
+        "author": "Lev Tolstoy",
         "price": 450.00,
-        "image": "/images/book20.jpg"
+        "image": "/images/book20.jpg",
+        "description": "Tarihi olaylar ve insan ilişkilerini anlatan epik eser."
     },
     {
         "id": 21,
         "name": "Karamazov Kardeşler",
+        "author": "Fyodor Dostoyevski",
         "price": 293.35,
-        "image": "/images/book21.jpg"
+        "image": "/images/book21.jpg",
+        "description": "Ahlak, inanç ve insan doğası üzerine derin bir roman."
     },
     {
         "id": 22,
         "name": "Yeraltından Notlar",
+        "author": "Fyodor Dostoyevski",
         "price": 71.39,
-        "image": "/images/book22.jpg"
+        "image": "/images/book22.jpg",
+        "description": "Toplumdan kopmuş bir adamın iç dünyası."
     },
     {
         "id": 23,
         "name": "Don Kişot",
+        "author": "Miguel de Cervantes",
         "price": 153.78,
-        "image": "/images/book23.jpg"
+        "image": "/images/book23.jpg",
+        "description": "Hayal ile gerçek arasındaki mücadeleyi anlatır."
     },
     {
         "id": 24,
         "name": "Robinson Crusoe",
+        "author": "Daniel Defoe",
         "price": 136.50,
-        "image": "/images/book24.jpg"
+        "image": "/images/book24.jpg",
+        "description": "Issız adada hayatta kalma hikayesi."
     },
     {
         "id": 25,
         "name": "Uçurtma Avcısı",
+        "author": "Khaled Hosseini",
         "price": 380.00,
-        "image": "/images/book25.jpg"
+        "image": "/images/book25.jpg",
+        "description": "Dostluk ve ihanet üzerine güçlü bir roman."
     },
     {
         "id": 26,
         "name": "Bin Muhteşem Güneş",
+        "author": "Khaled Hosseini",
         "price": 389.59,
-        "image": "/images/book26.jpg"
+        "image": "/images/book26.jpg",
+        "description": "Kadınların yaşam mücadelesini anlatır."
     },
     {
         "id": 27,
         "name": "Martin Eden",
+        "author": "Jack London",
         "price": 147.89,
-        "image": "/images/book27.jpg"
+        "image": "/images/book27.jpg",
+        "description": "Başarı ve toplum çatışmasını anlatan roman."
     },
     {
         "id": 28,
         "name": "İnce Memed",
+        "author": "Yaşar Kemal",
         "price": 210.00,
-        "image": "/images/book28.jpg"
+        "image": "/images/book28.jpg",
+        "description": "Anadolu’da geçen epik bir halk hikayesi."
     },
     {
         "id": 29,
         "name": "Kayıp Zamanın İzinde",
+        "author": "Marcel Proust",
         "price": 280.00,
-        "image": "/images/book29.jpg"
+        "image": "/images/book29.jpg",
+        "description": "Zaman ve hafıza üzerine yazılmış dev eser."
     },
     {
         "id": 30,
         "name": "Satranç",
+        "author": "Stefan Zweig",
         "price": 38.94,
-        "image": "/images/book30.jpg"
+        "image": "/images/book30.jpg",
+        "description": "Psikolojik gerilim içeren kısa ama etkili roman."
     }
 ]
