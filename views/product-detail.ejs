@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= product.name %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('partials/header') %>
+
+        <div class="product-detail">
+
+            <div class="product-detail-image">
+                <img src="<%= product.image %>">
+            </div>
+
+            <div class="product-detail-info">
+                <h2>
+                    <%= product.name %>
+                </h2>
+
+                <p class="product-author">
+                    <%= product.author %>
+                </p>
+
+                <p class="product-price">
+                    <%= product.price.toFixed(2) %> TL
+                </p>
+
+                <form action="/cart/add/<%= product.id %>" method="POST">
+                    <button type="submit">Sepete Ekle</button>
+                </form>
+
+                <p class="product-description">
+                    <%= product.description %>
+                </p>
+            </div>
+
+        </div>
+
+        <%- include('partials/footer') %>
+
+</body>
+
+</html>

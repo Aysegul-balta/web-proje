@@ -1,5 +1,25 @@
 {
+  "name": "web-proje",
+  "version": "1.0.0",
+  "description": "Bu proje, Yazılım Mühendisliği dersi kapsamında verilen Git/GitHub ödevi için oluşturulmuştur.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aysegul-balta/web-proje.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aysegul-balta/web-proje/issues"
+  },
+  "homepage": "https://github.com/Aysegul-balta/web-proje#readme",
   "dependencies": {
-    "bcrypt": "^6.0.0"
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
   }
 }
