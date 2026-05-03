@@ -1,0 +1,13 @@
+body {
+    font-family: Arial;
+}
+
+header,
+footer {
+    background: #eee;
+    padding: 10px;
+}
+
+nav a {
+    margin-right: 10px;
+}
