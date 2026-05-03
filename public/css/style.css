@@ -9,28 +9,27 @@ footer {
     padding: 10px;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #222;
-    padding: 14px 24px;
+/* Navbar Linkleri */
+.navbar-nav .nav-link {
+    color: #333;
+    transition: color 0.3s ease;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin-left: 16px;
+.navbar-nav .nav-link:hover {
+    color: #3bb78f; /* Bookle'daki o yeşil tonu */
 }
 
-.navbar-brand a {
-    font-weight: bold;
-    font-size: 20px;
+/* Kayıt Butonu */
+.btn-dark.rounded-pill {
+    transition: all 0.3s ease;
 }
 
-.navbar a:hover {
-    text-decoration: underline;
+.btn-dark.rounded-pill:hover {
+    background-color: #3bb78f;
+    border-color: #3bb78f;
+    transform: scale(1.05);
 }
+
 
 /* ÜRÜN KARTLARI */
 .product-card {
