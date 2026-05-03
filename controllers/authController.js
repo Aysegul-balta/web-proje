@@ -66,6 +66,10 @@ exports.getLogin = (req, res) => {
 exports.postLogin = async (req, res) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+  return res.send("Lütfen email ve şifre alanlarını doldurun!");
+}
+
   const data = fs.readFileSync(usersFile);
   const users = JSON.parse(data);
 
@@ -89,7 +93,7 @@ exports.postLogin = async (req, res) => {
 // GET → profil sayfası
 exports.getProfile = (req, res) => {
   if (!req.session.user) {
-    return res.send("Önce giriş yapmalısın!");
+    return res.redirect("/login");
   }
 
   res.send(`Profil sayfası: ${req.session.user.name}`);
