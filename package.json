@@ -2,10 +2,9 @@
   "name": "web-proje",
   "version": "1.0.0",
   "description": "Bu proje, Yazılım Mühendisliği dersi kapsamında verilen Git/GitHub ödevi için oluşturulmuştur.",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -20,13 +19,10 @@
   },
   "homepage": "https://github.com/Aysegul-balta/web-proje#readme",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt": "^6.0.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^17.4.2",
-    "ejs": "^5.0.2",
-=======
->>>>>>> origin/main
+    "ejs": "^3.1.10",
     "express": "^5.2.1",
     "express-session": "^1.19.0"
   }

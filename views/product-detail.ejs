@@ -38,6 +38,17 @@
                 <p class="product-description">
                     <%= product.description %>
                 </p>
+
+                <!-- EKLENEN KISIM -->
+                <h4>Teknik Özellikler</h4>
+                <ul>
+                    <% product.features.forEach(feature=> { %>
+                        <li>
+                            <%= feature %>
+                        </li>
+                        <% }) %>
+                </ul>
+
             </div>
 
         </div>

@@ -6,9 +6,14 @@
 
         <div class="navbar-menu">
             <a href="/">Ana Sayfa</a>
-            <a href="/products">Ürünler</a>
             <a href="/cart">Sepet</a>
-            <a href="/register">Kayıt Ol</a>
+
+            <% if (typeof user !=='undefined' && user) { %>
+                <a href="/logout">Çıkış Yap</a>
+                <% } else { %>
+                    <a href="/login">Giriş Yap</a>
+                    <a href="/register">Kayıt Ol</a>
+                    <% } %>
         </div>
     </nav>
 </header>

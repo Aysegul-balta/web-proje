@@ -126,3 +126,23 @@ footer {
 .product-image-link {
     text-decoration: none;
 }
+
+.category-menu {
+    margin: 15px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category-menu button {
+    border: 1px solid #222;
+    background: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.category-menu button:hover {
+    background: #222;
+    color: white;
+}

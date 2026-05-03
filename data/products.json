@@ -5,7 +5,12 @@
         "author": "Fyodor Dostoyevski",
         "price": 181.72,
         "image": "/images/book1.jpg",
-        "description": "Bir cinayet ve vicdan azabının psikolojik derinliğini anlatan klasik roman."
+        "description": "Bir cinayet ve vicdan azabının psikolojik derinliğini anlatan klasik roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 2,
@@ -13,7 +18,12 @@
         "author": "George Orwell",
         "price": 135.00,
         "image": "/images/book2.jpg",
-        "description": "Totaliter bir dünyada bireyin yok oluşunu anlatan distopik eser."
+        "description": "Totaliter bir dünyada bireyin yok oluşunu anlatan distopik eser.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 3,
@@ -21,7 +31,12 @@
         "author": "Antoine de Saint-Exupéry",
         "price": 50.62,
         "image": "/images/book3.jpg",
-        "description": "Hayatın anlamını sade bir dille anlatan evrensel bir hikaye."
+        "description": "Hayatın anlamını sade bir dille anlatan evrensel bir hikaye.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 4,
@@ -29,7 +44,12 @@
         "author": "Victor Hugo",
         "price": 519.20,
         "image": "/images/book4.jpg",
-        "description": "Adalet, merhamet ve insanlık üzerine derin bir klasik."
+        "description": "Adalet, merhamet ve insanlık üzerine derin bir klasik.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 5,
@@ -37,7 +57,12 @@
         "author": "Paulo Coelho",
         "price": 140.00,
         "image": "/images/book5.jpg",
-        "description": "Hayallerinin peşinden gitmenin önemini anlatan felsefi roman."
+        "description": "Hayallerinin peşinden gitmenin önemini anlatan felsefi roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 6,
@@ -45,7 +70,12 @@
         "author": "Franz Kafka",
         "price": 159.21,
         "image": "/images/book6.jpg",
-        "description": "Bir sabah böceğe dönüşen adamın yabancılaşmasını anlatır."
+        "description": "Bir sabah böceğe dönüşen adamın yabancılaşmasını anlatır.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 7,
@@ -53,7 +83,12 @@
         "author": "Jack London",
         "price": 82.39,
         "image": "/images/book7.jpg",
-        "description": "Vahşi doğada hayatta kalma mücadelesini anlatır."
+        "description": "Vahşi doğada hayatta kalma mücadelesini anlatır.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 8,
@@ -61,7 +96,12 @@
         "author": "John Steinbeck",
         "price": 181.74,
         "image": "/images/book8.jpg",
-        "description": "İki dostun hayalleri ve trajik sonlarını anlatan kısa roman."
+        "description": "İki dostun hayalleri ve trajik sonlarını anlatan kısa roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 9,
@@ -69,7 +109,12 @@
         "author": "Albert Camus",
         "price": 110.00,
         "image": "/images/book9.jpg",
-        "description": "Varoluşçuluğun en önemli eserlerinden biri."
+        "description": "Varoluşçuluğun en önemli eserlerinden biri.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 10,
@@ -77,7 +122,12 @@
         "author": "Oğuz Atay",
         "price": 240.00,
         "image": "/images/book10.jpg",
-        "description": "Modern insanın yalnızlığını anlatan kült roman."
+        "description": "Modern insanın yalnızlığını anlatan kült roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 11,
@@ -85,7 +135,12 @@
         "author": "Sabahattin Ali",
         "price": 105.00,
         "image": "/images/book11.jpg",
-        "description": "Derin bir aşk hikayesini anlatır."
+        "description": "Derin bir aşk hikayesini anlatır.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 12,
@@ -93,7 +148,12 @@
         "author": "José Mauro de Vasconcelos",
         "price": 130.00,
         "image": "/images/book12.jpg",
-        "description": "Küçük bir çocuğun hayatını anlatan duygusal roman."
+        "description": "Küçük bir çocuğun hayatını anlatan duygusal roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 13,
@@ -101,7 +161,12 @@
         "author": "George Orwell",
         "price": 90.87,
         "image": "/images/book13.jpg",
-        "description": "Siyasi sistemleri eleştiren alegorik roman."
+        "description": "Siyasi sistemleri eleştiren alegorik roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 14,
@@ -109,7 +174,12 @@
         "author": "Honoré de Balzac",
         "price": 51.92,
         "image": "/images/book14.jpg",
-        "description": "Saf aşkı anlatan klasik Fransız romanı."
+        "description": "Saf aşkı anlatan klasik Fransız romanı.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 15,
@@ -117,7 +187,12 @@
         "author": "Lev Tolstoy",
         "price": 51.92,
         "image": "/images/book15.jpg",
-        "description": "İnsanın gerçek ihtiyaçlarını sorgulayan kısa hikaye."
+        "description": "İnsanın gerçek ihtiyaçlarını sorgulayan kısa hikaye.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 16,
@@ -125,7 +200,12 @@
         "author": "Ivan Turgenev",
         "price": 134.82,
         "image": "/images/book16.jpg",
-        "description": "Nesiller arası çatışmayı anlatan klasik eser."
+        "description": "Nesiller arası çatışmayı anlatan klasik eser.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 17,
@@ -133,7 +213,12 @@
         "author": "Lev Tolstoy",
         "price": 272.58,
         "image": "/images/book17.jpg",
-        "description": "Aşk, sadakat ve toplum baskısını işleyen büyük roman."
+        "description": "Aşk, sadakat ve toplum baskısını işleyen büyük roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 18,
@@ -141,7 +226,12 @@
         "author": "Gustave Flaubert",
         "price": 153.78,
         "image": "/images/book18.jpg",
-        "description": "Gerçeklikten kaçan bir kadının trajedisini anlatır."
+        "description": "Gerçeklikten kaçan bir kadının trajedisini anlatır.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 19,
@@ -149,7 +239,12 @@
         "author": "Jane Austen",
         "price": 142.78,
         "image": "/images/book19.jpg",
-        "description": "Aşk ve toplum ilişkilerini anlatan klasik roman."
+        "description": "Aşk ve toplum ilişkilerini anlatan klasik roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 20,
@@ -157,7 +252,12 @@
         "author": "Lev Tolstoy",
         "price": 450.00,
         "image": "/images/book20.jpg",
-        "description": "Tarihi olaylar ve insan ilişkilerini anlatan epik eser."
+        "description": "Tarihi olaylar ve insan ilişkilerini anlatan epik eser.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 21,
@@ -165,7 +265,12 @@
         "author": "Fyodor Dostoyevski",
         "price": 293.35,
         "image": "/images/book21.jpg",
-        "description": "Ahlak, inanç ve insan doğası üzerine derin bir roman."
+        "description": "Ahlak, inanç ve insan doğası üzerine derin bir roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 22,
@@ -173,7 +278,12 @@
         "author": "Fyodor Dostoyevski",
         "price": 71.39,
         "image": "/images/book22.jpg",
-        "description": "Toplumdan kopmuş bir adamın iç dünyası."
+        "description": "Toplumdan kopmuş bir adamın iç dünyası.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 23,
@@ -181,7 +291,12 @@
         "author": "Miguel de Cervantes",
         "price": 153.78,
         "image": "/images/book23.jpg",
-        "description": "Hayal ile gerçek arasındaki mücadeleyi anlatır."
+        "description": "Hayal ile gerçek arasındaki mücadeleyi anlatır.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 24,
@@ -189,7 +304,12 @@
         "author": "Daniel Defoe",
         "price": 136.50,
         "image": "/images/book24.jpg",
-        "description": "Issız adada hayatta kalma hikayesi."
+        "description": "Issız adada hayatta kalma hikayesi.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 25,
@@ -197,7 +317,12 @@
         "author": "Khaled Hosseini",
         "price": 380.00,
         "image": "/images/book25.jpg",
-        "description": "Dostluk ve ihanet üzerine güçlü bir roman."
+        "description": "Dostluk ve ihanet üzerine güçlü bir roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 26,
@@ -205,7 +330,12 @@
         "author": "Khaled Hosseini",
         "price": 389.59,
         "image": "/images/book26.jpg",
-        "description": "Kadınların yaşam mücadelesini anlatır."
+        "description": "Kadınların yaşam mücadelesini anlatır.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 27,
@@ -213,7 +343,12 @@
         "author": "Jack London",
         "price": 147.89,
         "image": "/images/book27.jpg",
-        "description": "Başarı ve toplum çatışmasını anlatan roman."
+        "description": "Başarı ve toplum çatışmasını anlatan roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 28,
@@ -221,7 +356,12 @@
         "author": "Yaşar Kemal",
         "price": 210.00,
         "image": "/images/book28.jpg",
-        "description": "Anadolu’da geçen epik bir halk hikayesi."
+        "description": "Anadolu’da geçen epik bir halk hikayesi.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 29,
@@ -229,7 +369,12 @@
         "author": "Marcel Proust",
         "price": 280.00,
         "image": "/images/book29.jpg",
-        "description": "Zaman ve hafıza üzerine yazılmış dev eser."
+        "description": "Zaman ve hafıza üzerine yazılmış dev eser.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     },
     {
         "id": 30,
@@ -237,6 +382,11 @@
         "author": "Stefan Zweig",
         "price": 38.94,
         "image": "/images/book30.jpg",
-        "description": "Psikolojik gerilim içeren kısa ama etkili roman."
+        "description": "Psikolojik gerilim içeren kısa ama etkili roman.",
+        "features": [
+            "Roman",
+            "Türkçe baskı",
+            "Ortalama 200-600 sayfa"
+        ]
     }
 ]
