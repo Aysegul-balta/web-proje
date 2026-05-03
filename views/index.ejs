@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ürünler</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('partials/header') %>
+
+        <h2>Ürünler</h2>
+
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+            <% products.forEach(product=> { %>
+                <div style="border:1px solid #ccc; padding:10px;">
+                    <img src="<%= product.image %>" width="150">
+                    <h3>
+                        <%= product.name %>
+                    </h3>
+                    <p>
+                        <%= product.price.toFixed(2) %> TL
+                    </p>
+                </div>
+                <% }) %>
+        </div>
+
+        <%- include('partials/footer') %>
+
+</body>
+
+</html>

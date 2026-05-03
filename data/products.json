@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "name": "Suç ve Ceza",
+        "price": 181.72,
+        "image": "/images/book1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "1984",
+        "price": 135.00,
+        "image": "/images/book2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Küçük Prens",
+        "price": 50.62,
+        "image": "/images/book3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Sefiller",
+        "price": 519.20,
+        "image": "/images/book4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Simyacı",
+        "price": 140.00,
+        "image": "/images/book5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Dönüşüm",
+        "price": 159.21,
+        "image": "/images/book6.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Beyaz Diş",
+        "price": 82.39,
+        "image": "/images/book7.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Fareler ve İnsanlar",
+        "price": 181.74,
+        "image": "/images/book8.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Yabancı",
+        "price": 110.00,
+        "image": "/images/book9.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Tutunamayanlar",
+        "price": 240.00,
+        "image": "/images/book10.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Kürk Mantolu Madonna",
+        "price": 105.00,
+        "image": "/images/book11.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Şeker Portakalı",
+        "price": 130.00,
+        "image": "/images/book12.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Hayvan Çiftliği",
+        "price": 90.87,
+        "image": "/images/book13.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Vadideki Zambak",
+        "price": 51.92,
+        "image": "/images/book14.jpg"
+    },
+    {
+        "id": 15,
+        "name": "İnsan Ne ile Yaşar",
+        "price": 51.92,
+        "image": "/images/book15.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Babalar ve Oğullar",
+        "price": 134.82,
+        "image": "/images/book16.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Anna Karenina",
+        "price": 272.58,
+        "image": "/images/book17.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Madame Bovary",
+        "price": 153.78,
+        "image": "/images/book18.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Gurur ve Önyargı",
+        "price": 142.78,
+        "image": "/images/book19.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Savaş ve Barış",
+        "price": 450.00,
+        "image": "/images/book20.jpg"
+    },
+    {
+        "id": 21,
+        "name": "Karamazov Kardeşler",
+        "price": 293.35,
+        "image": "/images/book21.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Yeraltından Notlar",
+        "price": 71.39,
+        "image": "/images/book22.jpg"
+    },
+    {
+        "id": 23,
+        "name": "Don Kişot",
+        "price": 153.78,
+        "image": "/images/book23.jpg"
+    },
+    {
+        "id": 24,
+        "name": "Robinson Crusoe",
+        "price": 136.50,
+        "image": "/images/book24.jpg"
+    },
+    {
+        "id": 25,
+        "name": "Uçurtma Avcısı",
+        "price": 380.00,
+        "image": "/images/book25.jpg"
+    },
+    {
+        "id": 26,
+        "name": "Bin Muhteşem Güneş",
+        "price": 389.59,
+        "image": "/images/book26.jpg"
+    },
+    {
+        "id": 27,
+        "name": "Martin Eden",
+        "price": 147.89,
+        "image": "/images/book27.jpg"
+    },
+    {
+        "id": 28,
+        "name": "İnce Memed",
+        "price": 210.00,
+        "image": "/images/book28.jpg"
+    },
+    {
+        "id": 29,
+        "name": "Kayıp Zamanın İzinde",
+        "price": 280.00,
+        "image": "/images/book29.jpg"
+    },
+    {
+        "id": 30,
+        "name": "Satranç",
+        "price": 38.94,
+        "image": "/images/book30.jpg"
+    }
+]
