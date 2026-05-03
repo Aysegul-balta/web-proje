@@ -15,23 +15,29 @@
         <div style="display:flex; gap:20px; flex-wrap:wrap;">
             <% products.forEach(product=> { %>
 
-                <a href="/products/<%= product.id %>" style="text-decoration:none; color:inherit;">
-                    <div class="product-card">
+                <div class="product-card">
+                    <a href="/products/<%= product.id %>" class="product-image-link">
                         <img src="<%= product.image %>" width="150">
+                    </a>
 
+                    <a href="/products/<%= product.id %>" class="product-title-link">
                         <h3>
                             <%= product.name %>
                         </h3>
+                    </a>
 
-                        <p class="product-author">
-                            <%= product.author %>
-                        </p>
+                    <p class="product-author">
+                        <%= product.author %>
+                    </p>
 
-                        <p>
-                            <%= product.price.toFixed(2) %> TL
-                        </p>
-                    </div>
-                </a>
+                    <p>
+                        <%= product.price.toFixed(2) %> TL
+                    </p>
+
+                    <form action="/cart/add/<%= product.id %>" method="POST">
+                        <button type="submit" class="cart-icon-button">🛒</button>
+                    </form>
+                </div>
 
                 <% }) %>
         </div>
