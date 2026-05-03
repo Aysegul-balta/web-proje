@@ -23,3 +23,31 @@ exports.getProductDetail = (req, res) => {
 
     res.render('product-detail', { product });
 };
+
+exports.addToCart = (req, res) => {
+    const products = getProductsData();
+    const productId = parseInt(req.params.id);
+
+    const product = products.find(item => item.id === productId);
+
+    if (!product) {
+        return res.status(404).send('Ürün bulunamadı');
+    }
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    const existingItem = req.session.cart.find(item => item.id === productId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        req.session.cart.push({
+            ...product,
+            quantity: 1
+        });
+    }
+
+    res.redirect('/cart');
+};

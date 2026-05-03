@@ -31,6 +31,10 @@
                     <%= product.price.toFixed(2) %> TL
                 </p>
 
+                <form action="/cart/add/<%= product.id %>" method="POST">
+                    <button type="submit">Sepete Ekle</button>
+                </form>
+
                 <p class="product-description">
                     <%= product.description %>
                 </p>
