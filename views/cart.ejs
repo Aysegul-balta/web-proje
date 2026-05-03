@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sepet</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('partials/header') %>
+
+        <h2>Sepet</h2>
+
+        <% if (cart.length===0) { %>
+            <p>Sepet boş</p>
+            <% } else { %>
+
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                        <th>Toplam</th>
+                    </tr>
+
+                    <% cart.forEach(item=> { %>
+                        <tr>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td>
+                                <%= item.price.toFixed(2) %> TL
+                            </td>
+                            <td>
+                                <form action="/cart/decrease/<%= item.id %>" method="POST" style="display:inline;">
+                                    <button type="submit">-</button>
+                                </form>
+
+                                <%= item.quantity %>
+
+                                    <form action="/cart/increase/<%= item.id %>" method="POST" style="display:inline;">
+                                        <button type="submit">+</button>
+                                    </form>
+                            </td>
+                            <td>
+                                <%= (item.price * item.quantity).toFixed(2) %> TL
+                            </td>
+                        </tr>
+                        <% }) %>
+
+                </table>
+
+                <h3>Genel Toplam: <%= total.toFixed(2) %> TL</h3>
+
+                <% } %>
+
+                    <%- include('partials/footer') %>
+
+</body>
+
+</html>
