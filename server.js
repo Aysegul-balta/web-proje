@@ -31,8 +31,10 @@ app.get("/", (req, res) => {
   res.send("Ana sayfa çalışıyor");
 });
 
-app.listen(3000, () => {
-  console.log("Server çalışıyor: http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server çalışıyor: http://localhost:${PORT}`);
 });
 
 app.use((req, res) => {
