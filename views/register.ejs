@@ -34,4 +34,27 @@
     <button type="submit">Kayıt Ol</button>
   </form>
 </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('partials/header') %>
+
+        <h2>Kaydol</h2>
+
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Kullanıcı adı">
+            <input type="password" name="password" placeholder="Şifre">
+            <button type="submit">Kayıt Ol</button>
+        </form>
+
+        <%- include('partials/footer') %>
+
+</body>
+
 </html>

@@ -1,16 +1,28 @@
+const session = require('express-session');
 const express = require('express');
+const path = require('path');
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes'); // EKLENDİ
 
 const app = express();
 
-// Formdan gelen verileri okuyabilmek için gerekli (Middleware)
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'bookstore-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
+
 app.use(express.urlencoded({ extended: true }));
 
-// Tüm rotalarımızı (URL yollarını) kullanıma açıyoruz
-app.use('/', userRoutes);
+app.use('/', productRoutes); // ANA SAYFA (ürün listesi)
+app.use('/', userRoutes);    // register vs
 
 const PORT = 3000;
 
 app.listen(PORT, () => {
-    console.log(`Sunucu çalışıyor: http://localhost:${PORT}/register`);
+    console.log(`Sunucu çalışıyor: http://localhost:${PORT}/`);
 });
