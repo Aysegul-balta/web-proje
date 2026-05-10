@@ -6,6 +6,7 @@ const flash = require("connect-flash");
 
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes'); 
+const checkoutRoutes = require('./routes/checkoutRoutes');
 // Buradaki cartRoutes require satırını sildik çünkü öyle bir dosya yok!
 
 const app = express();
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 // Arkadaşın sepeti /products altına koyduğu için her şey buradan dönecek
 app.use('/products', productRoutes); 
 app.use('/', userRoutes);
+app.use('/checkout', checkoutRoutes);
 
 app.get('/', (req, res) => {
     res.redirect('/products');
