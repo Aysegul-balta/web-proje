@@ -51,3 +51,41 @@ exports.addToCart = (req, res) => {
 
     res.redirect('/cart');
 };
+exports.getCart = (req, res) => {
+    const cart = req.session.cart || [];
+
+    const total = cart.reduce((sum, item) => {
+        return sum + (item.price * item.quantity);
+    }, 0);
+
+    res.render('cart', { cart, total });
+};
+exports.increaseQuantity = (req, res) => {
+    const productId = parseInt(req.params.id);
+    const cart = req.session.cart || [];
+
+    const item = cart.find(product => product.id === productId);
+
+    if (item) {
+        item.quantity += 1;
+    }
+
+    res.redirect('/cart');
+};
+
+exports.decreaseQuantity = (req, res) => {
+    const productId = parseInt(req.params.id);
+    let cart = req.session.cart || [];
+
+    const item = cart.find(product => product.id === productId);
+
+    if (item) {
+        item.quantity -= 1;
+
+        if (item.quantity <= 0) {
+            req.session.cart = cart.filter(product => product.id !== productId);
+        }
+    }
+
+    res.redirect('/cart');
+};

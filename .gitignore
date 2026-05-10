@@ -8,4 +8,6 @@ Thumbs.db
 # Editör klasörleri
 .vscode/
 
+# Node
 node_modules/
+.env
