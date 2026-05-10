@@ -1,16 +1,25 @@
 const fs = require('fs');
 const path = require('path');
 
+// Yardımcı Fonksiyon: JSON dosyasından ürün verilerini çeker
 const getProductsData = () => {
     const filePath = path.join(__dirname, '../data/products.json');
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 };
 
+// 1. Ana Sayfa (Vitrin)
 exports.getProducts = (req, res) => {
     const products = getProductsData();
     res.render('index', { products });
 };
 
+// 2. Tüm Ürünler Sayfası (Yeni istediğin sade liste)
+exports.getAllProductsPage = (req, res) => {
+    const products = getProductsData();
+    res.render('products-list', { products });
+};
+
+// 3. Ürün Detay Sayfası
 exports.getProductDetail = (req, res) => {
     const products = getProductsData();
     const productId = parseInt(req.params.id);
@@ -23,10 +32,19 @@ exports.getProductDetail = (req, res) => {
 };
 
 // --- SEPET İŞLEMLERİ ---
+
+// Sepeti Görüntüle
+exports.getCart = (req, res) => {
+    const cart = req.session.cart || [];
+    const total = cart.reduce((sum, item) => {
+        return sum + (parseFloat(item.price) * item.quantity);
+    }, 0);
+
+    res.render('cart', { cart, total }); 
+};
+
+// Sepete Ürün Ekle (Ana sayfadaki butonlar için)
 exports.addToCart = (req, res) => {
-
-    console.log("ADD TO CART ÇALIŞTI → ID:", req.params.id);
-
     const products = getProductsData();
     const productId = parseInt(req.params.id);
     const product = products.find(item => item.id === productId);
@@ -35,7 +53,7 @@ exports.addToCart = (req, res) => {
         return res.status(404).send('Ürün bulunamadı');
     }
 
-    if (!req.session.cart || !Array.isArray(req.session.cart)) {
+    if (!req.session.cart) {
         req.session.cart = [];
     }
 
@@ -50,35 +68,7 @@ exports.addToCart = (req, res) => {
     res.redirect('/products/cart');
 };
 
-
-// Sepet sayfasını görüntülemek için gereken fonksiyon
-exports.getCart = (req, res) => {
-    // Session'dan sepeti al, eğer yoksa boş bir dizi oluştur
-    const cart = req.session.cart || [];
-    
-    // Toplam tutarı hesapla
-    const total = cart.reduce((sum, item) => {
-        return sum + (parseFloat(item.price) * item.quantity);
-    }, 0);
-
-    // views/cart.ejs dosyasını render et ve verileri gönder
-    res.render('cart', { cart, total }); 
-};
-exports.decreaseQuantity = (req, res) => {
-    const productId = parseInt(req.params.id);
-    let cart = req.session.cart || [];
-    const item = cart.find(product => product.id === productId);
-
-    if (item) {
-        item.quantity -= 1;
-        if (item.quantity <= 0) {
-            req.session.cart = cart.filter(product => product.id !== productId);
-        }
-    }
-    res.redirect('/products/cart');
-};
-
-// Miktarı Artır (+)
+// Sepette Miktarı Artır (+)
 exports.increaseQuantity = (req, res) => {
     const productId = parseInt(req.params.id);
     if (req.session.cart) {
@@ -90,7 +80,7 @@ exports.increaseQuantity = (req, res) => {
     res.redirect('/products/cart');
 };
 
-// Miktarı Azalt (-)
+// Sepette Miktarı Azalt (-)
 exports.decreaseQuantity = (req, res) => {
     const productId = parseInt(req.params.id);
     if (req.session.cart) {
@@ -100,7 +90,7 @@ exports.decreaseQuantity = (req, res) => {
             if (item.quantity > 1) {
                 item.quantity -= 1;
             } else {
-                // Miktar 1'den az olamaz, 1 iken basılırsa ürünü sepetten siler
+                // Miktar 1 iken eksiye basılırsa ürünü sepetten tamamen çıkarır
                 req.session.cart.splice(itemIndex, 1);
             }
         }
