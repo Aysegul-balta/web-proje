@@ -7,16 +7,32 @@ const getProductsData = () => {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 };
 
-// 1. Ana Sayfa (Vitrin)
+// 1. Ana Sayfa (Vitrin - Index)
 exports.getProducts = (req, res) => {
     const products = getProductsData();
     res.render('index', { products });
 };
 
-// 2. Tüm Ürünler Sayfası (Yeni istediğin sade liste)
+// 2. Tüm Ürünler Sayfası (Arama ve Kategori Filtrelemeli)
 exports.getAllProductsPage = (req, res) => {
-    const products = getProductsData();
-    res.render('products-list', { products });
+    try {
+        let products = getProductsData();
+        const { search } = req.query;
+
+        if (search) {
+            products = products.filter(p => 
+                p.name.toLowerCase().includes(search.toLowerCase()) || 
+                p.author.toLowerCase().includes(search.toLowerCase())
+            );
+        }
+
+        res.render('products-list', { 
+            products, 
+            searchQuery: search || ''
+        });
+    } catch (error) {
+        res.status(500).send("Ürünler yüklenemedi.");
+    }
 };
 
 // 3. Ürün Detay Sayfası
@@ -33,7 +49,7 @@ exports.getProductDetail = (req, res) => {
 
 // --- SEPET İŞLEMLERİ ---
 
-// Sepeti Görüntüle
+// Sepet Sayfasını Görüntüle
 exports.getCart = (req, res) => {
     const cart = req.session.cart || [];
     const total = cart.reduce((sum, item) => {
@@ -43,7 +59,7 @@ exports.getCart = (req, res) => {
     res.render('cart', { cart, total }); 
 };
 
-// Sepete Ürün Ekle (Ana sayfadaki butonlar için)
+// Sepete Ürün Ekle
 exports.addToCart = (req, res) => {
     const products = getProductsData();
     const productId = parseInt(req.params.id);
