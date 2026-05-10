@@ -87,7 +87,7 @@ exports.postLogin = async (req, res) => {
 
   req.session.user = user;
 
-  res.send(`Hoş geldin ${user.name}`);
+  res.render("loginSuccess", { user });
 };
 
 // GET → profil sayfası

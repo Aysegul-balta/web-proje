@@ -4,12 +4,10 @@ const session = require('express-session');
 const path = require('path');
 const flash = require("connect-flash");
 
+const authRoutes = require("./routes/authRoutes");
 const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes'); 
+const productRoutes = require("./routes/productRoutes");
 const checkoutRoutes = require('./routes/checkoutRoutes');
-// Buradaki cartRoutes require satırını sildik çünkü öyle bir dosya yok!
-
-const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -33,9 +31,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// --- ROTALAR ---
-// Arkadaşın sepeti /products altına koyduğu için her şey buradan dönecek
-app.use('/products', productRoutes); 
+app.use("/", authRoutes);
+app.use("/", productRoutes);
+app.use('/products', productRoutes);
 app.use('/', userRoutes);
 app.use('/checkout', checkoutRoutes);
 
