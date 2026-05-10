@@ -1,128 +1,144 @@
+/* --- GENEL DEĞİŞKENLER VE AYARLAR --- */
+:root {
+    --bookle-dark: #1a2b48;
+    --bookle-green: #3bb78f;
+    --bookle-hover-green: #2ea07a;
+}
+
 body {
     margin: 0;
-    font-family: Arial;
-}
-
-header,
-footer {
-    background: #eee;
-    padding: 10px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #222;
-    padding: 14px 24px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin-left: 16px;
-}
-
-.navbar-brand a {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* ÜRÜN KARTLARI */
-.product-card {
-    border: 1px solid #ccc;
-    padding: 12px;
-    width: 180px;
-    background: white;
-    transition: 0.2s;
-    text-align: center;
-}
-
-.product-card img {
-    width: 150px;
-    height: 220px;
-    object-fit: contain;
-    background: #f5f5f5;
-}
-
-.product-card h3 {
-    font-size: 16px;
-    margin: 10px 0 5px;
-}
-
-.product-card p {
-    font-weight: bold;
+    padding: 0;
+    font-family: 'Jost', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
     color: #333;
 }
 
-.product-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transform: scale(1.03);
+/* --- NAVBAR & FOOTER --- */
+header, footer {
+    background: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar-nav .nav-link {
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--bookle-green);
+}
+
+/* --- BUTONLAR --- */
+.btn-bookle {
+    background-color: var(--bookle-green);
+    color: white;
+    border: none;
+    border-radius: 50px; /* Header'daki tasarımla uyum için */
+    padding: 12px 35px;
+    transition: all 0.3s ease;
+}
+
+.btn-bookle:hover {
+    background-color: var(--bookle-hover-green);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-dark.rounded-pill {
+    transition: all 0.3s ease;
+}
+
+.btn-dark.rounded-pill:hover {
+    background-color: var(--bookle-green);
+    border-color: var(--bookle-green);
+    transform: scale(1.05);
+}
+
+/* --- KİTAP KARTLARI (ANA SAYFA) --- */
+.book-card {
+    background: white;
+    border-radius: 20px;
+    /* transition: transform ve shadow buradaki sihri yaratır */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
     cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05) !important;
 }
 
-.product-author {
-    font-size: 13px;
-    color: gray;
-    font-weight: normal;
-    margin: 4px 0;
+/* Kartın üzerine gelince (Hover) yapılacaklar */
+.book-card:hover {
+    transform: scale(1.08) !important; /* %8 büyüme */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+    z-index: 10;
 }
 
-/* ÜRÜN DETAY SAYFASI */
+.book-card img {
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.book-card:hover img {
+    transform: scale(1.03); /* Resim de hafifçe büyür */
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--bookle-dark);
+}
+
+/* --- ÜRÜN DETAY SAYFASI --- */
 .product-detail {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
-    padding: 30px;
+    padding: 50px 0;
+    background: white;
+    margin-top: 30px;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 .product-detail-image img {
-    width: 250px;
-    height: 350px;
-    object-fit: contain;
-    background: #f5f5f5;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .product-detail-info {
-    max-width: 500px;
+    flex: 1;
+    min-width: 300px;
 }
 
 .product-price {
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
-    margin: 10px 0;
+    color: var(--bookle-green);
+    margin: 20px 0;
 }
 
 .product-description {
-    margin-top: 15px;
-    line-height: 1.5;
-    color: #333;
+    line-height: 1.8;
+    color: #636e72;
+    font-size: 1.05rem;
 }
 
-/* SEPET BUTONU */
-.cart-icon-button {
-    margin-top: 6px;
+/* --- SEPET VE LİNKLER --- */
+a {
+    text-decoration: none !important;
+}
+
+.table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #f1f3f5;
     border: none;
-    background: #222;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.cart-icon-button:hover {
-    background: #444;
-}
-
-.product-title-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.product-image-link {
-    text-decoration: none;
 }

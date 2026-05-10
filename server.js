@@ -1,14 +1,11 @@
 require("dotenv").config();
 
+const session = require("express-session");
 const express = require("express");
+const flash = require("connect-flash");
 const app = express();
 
-const session = require("express-session");
-const path = require("path");
-const flash = require("connect-flash");
-
 const authRoutes = require("./routes/authRoutes");
-const productRoutes = require("./routes/productRoutes");
 
 app.set("view engine", "ejs");
 
@@ -29,7 +26,10 @@ app.use((req, res, next) => {
 });
 
 app.use("/", authRoutes);
-app.use("/", productRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Ana sayfa çalışıyor");
+});
 
 const PORT = process.env.PORT || 3000;
 
