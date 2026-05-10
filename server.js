@@ -6,7 +6,7 @@ const flash = require("connect-flash");
 const app = express();
 
 const authRoutes = require("./routes/authRoutes");
-const authRoutes = require("./routes/authRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 app.set("view engine", "ejs");
 
