@@ -77,3 +77,33 @@ exports.decreaseQuantity = (req, res) => {
     }
     res.redirect('/products/cart');
 };
+
+// Miktarı Artır (+)
+exports.increaseQuantity = (req, res) => {
+    const productId = parseInt(req.params.id);
+    if (req.session.cart) {
+        const item = req.session.cart.find(p => p.id === productId);
+        if (item) {
+            item.quantity += 1;
+        }
+    }
+    res.redirect('/products/cart');
+};
+
+// Miktarı Azalt (-)
+exports.decreaseQuantity = (req, res) => {
+    const productId = parseInt(req.params.id);
+    if (req.session.cart) {
+        const itemIndex = req.session.cart.findIndex(p => p.id === productId);
+        if (itemIndex > -1) {
+            const item = req.session.cart[itemIndex];
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+            } else {
+                // Miktar 1'den az olamaz, 1 iken basılırsa ürünü sepetten siler
+                req.session.cart.splice(itemIndex, 1);
+            }
+        }
+    }
+    res.redirect('/products/cart');
+};

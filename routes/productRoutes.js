@@ -14,4 +14,10 @@ router.post('/cart/add/:id', productController.addToCart);
 // URL: localhost:3000/products/:id
 router.get('/:id', productController.getProductDetail);
 
+// Artırma Rotası
+router.post('/cart/increase/:id', productController.increaseQuantity);
+
+// Azaltma Rotası
+router.post('/cart/decrease/:id', productController.decreaseQuantity);
+
 module.exports = router;
