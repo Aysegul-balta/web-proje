@@ -14,27 +14,28 @@ exports.getProducts = (req, res) => {
 exports.getProductDetail = (req, res) => {
     const products = getProductsData();
     const productId = parseInt(req.params.id);
-
     const product = products.find(item => item.id === productId);
 
     if (!product) {
         return res.status(404).send('Ürün bulunamadı');
     }
-
     res.render('product-detail', { product });
 };
 
+// --- SEPET İŞLEMLERİ ---
 exports.addToCart = (req, res) => {
+
+    console.log("ADD TO CART ÇALIŞTI → ID:", req.params.id);
+
     const products = getProductsData();
     const productId = parseInt(req.params.id);
-
     const product = products.find(item => item.id === productId);
 
     if (!product) {
         return res.status(404).send('Ürün bulunamadı');
     }
 
-    if (!req.session.cart) {
+    if (!req.session.cart || !Array.isArray(req.session.cart)) {
         req.session.cart = [];
     }
 
@@ -43,49 +44,36 @@ exports.addToCart = (req, res) => {
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        req.session.cart.push({
-            ...product,
-            quantity: 1
-        });
+        req.session.cart.push({ ...product, quantity: 1 });
     }
 
-    res.redirect('/cart');
+    res.redirect('/products/cart');
 };
-exports.getCart = (req, res) => {
-    const cart = req.session.cart || [];
 
+
+// Sepet sayfasını görüntülemek için gereken fonksiyon
+exports.getCart = (req, res) => {
+    // Session'dan sepeti al, eğer yoksa boş bir dizi oluştur
+    const cart = req.session.cart || [];
+    
+    // Toplam tutarı hesapla
     const total = cart.reduce((sum, item) => {
-        return sum + (item.price * item.quantity);
+        return sum + (parseFloat(item.price) * item.quantity);
     }, 0);
 
-    res.render('cart', { cart, total });
+    // views/cart.ejs dosyasını render et ve verileri gönder
+    res.render('cart', { cart, total }); 
 };
-exports.increaseQuantity = (req, res) => {
-    const productId = parseInt(req.params.id);
-    const cart = req.session.cart || [];
-
-    const item = cart.find(product => product.id === productId);
-
-    if (item) {
-        item.quantity += 1;
-    }
-
-    res.redirect('/cart');
-};
-
 exports.decreaseQuantity = (req, res) => {
     const productId = parseInt(req.params.id);
     let cart = req.session.cart || [];
-
     const item = cart.find(product => product.id === productId);
 
     if (item) {
         item.quantity -= 1;
-
         if (item.quantity <= 0) {
             req.session.cart = cart.filter(product => product.id !== productId);
         }
     }
-
-    res.redirect('/cart');
+    res.redirect('/products/cart');
 };

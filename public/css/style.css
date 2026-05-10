@@ -1,13 +1,19 @@
-/* GENEL AYARLAR */
+/* --- GENEL DEĞİŞKENLER VE AYARLAR --- */
+:root {
+    --bookle-dark: #1a2b48;
+    --bookle-green: #3bb78f;
+    --bookle-hover-green: #2ea07a;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Jost', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     color: #333;
 }
 
-/* NAVBAR & FOOTER */
+/* --- NAVBAR & FOOTER --- */
 header, footer {
     background: #ffffff;
     padding: 15px 0;
@@ -21,19 +27,21 @@ header, footer {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #3bb78f; /* Bookle Yeşil Tonu */
+    color: var(--bookle-green);
 }
 
-/* BUTONLAR */
+/* --- BUTONLAR --- */
 .btn-bookle {
-    background-color: #3bb78f;
+    background-color: var(--bookle-green);
     color: white;
     border: none;
+    border-radius: 50px; /* Header'daki tasarımla uyum için */
+    padding: 12px 35px;
     transition: all 0.3s ease;
 }
 
 .btn-bookle:hover {
-    background-color: #2ea07a;
+    background-color: var(--bookle-hover-green);
     transform: translateY(-2px);
     color: white;
 }
@@ -43,8 +51,8 @@ header, footer {
 }
 
 .btn-dark.rounded-pill:hover {
-    background-color: #3bb78f;
-    border-color: #3bb78f;
+    background-color: var(--bookle-green);
+    border-color: var(--bookle-green);
     transform: scale(1.05);
 }
 
@@ -52,15 +60,18 @@ header, footer {
 .book-card {
     background: white;
     border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    /* transition: transform ve shadow buradaki sihri yaratır */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
     cursor: pointer;
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05) !important;
 }
 
-/* İşte o istediğin büyüme efekti burası */
+/* Kartın üzerine gelince (Hover) yapılacaklar */
 .book-card:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+    transform: scale(1.08) !important; /* %8 büyüme */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+    z-index: 10;
 }
 
 .book-card img {
@@ -69,12 +80,13 @@ header, footer {
 }
 
 .book-card:hover img {
-    transform: scale(1.03);
+    transform: scale(1.03); /* Resim de hafifçe büyür */
 }
 
 .card-title {
     font-size: 1.1rem;
-    color: #2d3436;
+    font-weight: bold;
+    color: var(--bookle-dark);
 }
 
 /* --- ÜRÜN DETAY SAYFASI --- */
@@ -105,7 +117,7 @@ header, footer {
 .product-price {
     font-size: 28px;
     font-weight: bold;
-    color: #3bb78f;
+    color: var(--bookle-green);
     margin: 20px 0;
 }
 
@@ -115,12 +127,11 @@ header, footer {
     font-size: 1.05rem;
 }
 
-/* LİNKLERİ TEMİZLEME */
+/* --- SEPET VE LİNKLER --- */
 a {
     text-decoration: none !important;
 }
 
-/* SEPET TABLOSU */
 .table {
     background: white;
     border-radius: 15px;

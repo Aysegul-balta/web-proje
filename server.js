@@ -4,19 +4,16 @@ const session = require('express-session');
 const path = require('path');
 const flash = require("connect-flash");
 
-// Rotaları içeri alıyoruz
 const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
-const cartRoutes = require('./routes/cartRoutes'); // Sepet hatasını çözen kritik satır!
+const productRoutes = require('./routes/productRoutes'); 
+// Buradaki cartRoutes require satırını sildik çünkü öyle bir dosya yok!
 
 const app = express();
 
-// Görünüm motoru ayarı (EJS)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// --- MIDDLEWARE ---
-app.use(express.static(path.join(__dirname, 'public'))); // CSS ve resimlerin çalışması için
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -29,7 +26,6 @@ app.use(session({
 
 app.use(flash());
 
-// Başarı/Hata mesajları (Navbar için)
 app.use((req, res, next) => {
     res.locals.error_msg = req.flash("error_msg");
     res.locals.success_msg = req.flash("success_msg");
@@ -37,22 +33,19 @@ app.use((req, res, next) => {
 });
 
 // --- ROTALAR ---
+// Arkadaşın sepeti /products altına koyduğu için her şey buradan dönecek
 app.use('/products', productRoutes); 
-app.use('/cart', cartRoutes); // Sepet işlemleri için bu rota şart
-app.use('/', userRoutes);    // Login, Register ve Profil
+app.use('/', userRoutes);
 
-// Ana sayfaya gidince direkt kitaplara yönlendir
 app.get('/', (req, res) => {
     res.redirect('/products');
 });
 
-// --- SUNUCU BAŞLATMA ---
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Sunucu çalışıyor: http://localhost:${PORT}/`);
 });
 
-// 404 Sayfası
 app.use((req, res) => {
     res.status(404).render("404");
 });
