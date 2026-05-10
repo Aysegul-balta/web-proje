@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sepetim</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <h1>Sepetim</h1>
+        <% if (cart.length > 0) { %>
+            <ul>
+                <% cart.forEach(item => { %>
+                    <li><%= item.name %> - <%= item.price %> TL (Adet: <%= item.quantity %>)</li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>Sepetiniz boş.</p>
+        <% } %>
+        <a href="/products">Alışverişe Devam Et</a>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>
