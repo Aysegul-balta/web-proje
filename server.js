@@ -6,6 +6,7 @@ const flash = require("connect-flash");
 const app = express();
 
 const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 app.set("view engine", "ejs");
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", authRoutes);
+app.use("/", productRoutes);
 
 app.get("/", (req, res) => {
   res.send("Ana sayfa çalışıyor");
