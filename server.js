@@ -1,26 +1,27 @@
 require("dotenv").config();
-
-const express = require("express");
-const session = require("express-session");
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
 const flash = require("connect-flash");
+
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes'); 
+const checkoutRoutes = require('./routes/checkoutRoutes');
+// Buradaki cartRoutes require satırını sildik çünkü öyle bir dosya yok!
+
 const app = express();
 
-// Rotaları içeri alıyoruz
-const authRoutes = require("./routes/authRoutes");
-const productRoutes = require("./routes/productRoutes"); 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// Görünüm motoru ayarı
-app.set("view engine", "ejs");
-
-// --- MIDDLEWARE ---
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(session({
-    secret: 'aysegul_240501312_ozel_anahtar', 
+    secret: 'aysegul_bookstore_secret',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: { secure: false } 
 }));
 
@@ -33,16 +34,18 @@ app.use((req, res, next) => {
 });
 
 // --- ROTALAR ---
-app.use("/products", productRoutes); 
-app.use("/", authRoutes);
+// Arkadaşın sepeti /products altına koyduğu için her şey buradan dönecek
+app.use('/products', productRoutes); 
+app.use('/', userRoutes);
+app.use('/checkout', checkoutRoutes);
 
-app.get("/", (req, res) => {
-    res.redirect("/products");
+app.get('/', (req, res) => {
+    res.redirect('/products');
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server çalışıyor: http://localhost:${PORT}`);
+    console.log(`🚀 Sunucu çalışıyor: http://localhost:${PORT}/`);
 });
 
 app.use((req, res) => {
