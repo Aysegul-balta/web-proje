@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5 mb-5">
+    <h2 class="mb-4 fw-bold">Ödeme Sayfası</h2>
+
+    <div class="card p-4 shadow" style="border-radius: 20px;">
+        <h4 class="mb-3">Teslimat Bilgileri</h4>
+
+        <form action="/checkout/complete" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Ad Soyad</label>
+                <input type="text" class="form-control" name="fullname" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Adres</label>
+                <textarea class="form-control" name="address" rows="3" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Kart Numarası</label>
+                <input type="text" class="form-control" name="card" required>
+            </div>
+
+            <button type="submit" class="btn btn-bookle rounded-pill px-4 mt-2">Ödemeyi Tamamla</button>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,49 +1,44 @@
-<!DOCTYPE html>
-<html>
+<%- include('partials/header') %>
 
-<head>
-    <title>Ürünler</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-
-    <%- include('partials/header') %>
-
-        <h2>Ürünler</h2>
-
-        <div style="display:flex; gap:20px; flex-wrap:wrap;">
-            <% products.forEach(product=> { %>
-
-                <div class="product-card">
-                    <a href="/products/<%= product.id %>" class="product-image-link">
-                        <img src="<%= product.image %>" width="150">
-                    </a>
-
-                    <a href="/products/<%= product.id %>" class="product-title-link">
-                        <h3>
-                            <%= product.name %>
-                        </h3>
-                    </a>
-
-                    <p class="product-author">
-                        <%= product.author %>
-                    </p>
-
-                    <p>
-                        <%= product.price.toFixed(2) %> TL
-                    </p>
-
-                    <form action="/cart/add/<%= product.id %>" method="POST">
-                        <button type="submit" class="cart-icon-button">🛒</button>
-                    </form>
-                </div>
-
-                <% }) %>
+<section class="hero-section py-5" style="background-color: #eef5f9; border-radius: 0 0 50px 50px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-4" style="color: #1a2b48;">Yeni Kitabını <br>En İyi Fiyatla Al</h1>
+                <p class="lead mb-5 text-muted">Aradığın tüm klasikler ve yeni çıkanlar Bookle'da seni bekliyor.</p>
+                <a href="#kitaplar" class="btn btn-bookle btn-lg shadow">Şimdi Keşfet →</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=500" class="img-fluid rounded shadow-lg" alt="Kitaplar">
+            </div>
         </div>
+    </div>
+</section>
 
-        <%- include('partials/footer') %>
+<div class="container mt-5" id="kitaplar">
+    <h2 class="mb-4">Öne Çıkan Kitaplar</h2>
+    <div class="row">
+        <% products.forEach(product => { %> <div class="col-md-3 mb-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-3 book-card" style="border-radius: 20px; position: relative;">
+                    
+                    <a href="/products/<%= product.id %>" style="text-decoration: none; color: inherit; display: block;">
+                        <img src="<%= product.image %>" class="card-img-top mx-auto" style="height: 200px; width: auto;" alt="<%= product.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold"><%= product.name %></h5>
+                            <p class="card-text text-muted small"><%= product.author %></p>
+                            <p class="fw-bold text-success fs-5"><%= product.price %> TL</p>
+                        </div>
+                    </a>
 
-</body>
+                    <div class="px-3 pb-3">
+                        <form action="/products/cart/add/<%= product.id %>" method="POST">
+                            <button type="submit" class="btn btn-outline-dark rounded-pill w-100">Sepete Ekle</button>
+                        </form>
+                    </div>
 
-</html>
+                </div>
+            </div>
+        <% }) %> </div>
+</div>
+
+<%- include('partials/footer') %>
