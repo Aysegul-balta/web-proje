@@ -15,30 +15,60 @@
     </div>
 </section>
 
-<div class="container mt-5" id="kitaplar">
-    <h2 class="mb-4">Öne Çıkan Kitaplar</h2>
-    <div class="row">
-        <% products.forEach(product => { %> <div class="col-md-3 mb-4">
-                <div class="card h-100 border-0 shadow-sm text-center p-3 book-card" style="border-radius: 20px; position: relative;">
-                    
-                    <a href="/products/<%= product.id %>" style="text-decoration: none; color: inherit; display: block;">
-                        <img src="<%= product.image %>" class="card-img-top mx-auto" style="height: 200px; width: auto;" alt="<%= product.name %>">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold"><%= product.name %></h5>
-                            <p class="card-text text-muted small"><%= product.author %></p>
-                            <p class="fw-bold text-success fs-5"><%= product.price %> TL</p>
+<div class="container mt-5 mb-5">
+    <div class="row text-center mb-5">
+        <div class="col">
+     <h1 class="fw-bold display-5" style="color: var(--bookle-dark);">
+            Bir Sonraki Hikayeni Keşfet
+        </h1>
+            <p class="lead text-muted">Öne çıkan kitaplarımıza göz atın.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <% if (products.length > 0) { %>
+            <% products.forEach(product => { %>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm product-card" style="border-radius: 15px; overflow: hidden; transition: all 0.3s ease;">
+                        
+                        <a href="/products/<%= product.id %>" class="text-decoration-none text-dark">
+                            <div class="p-4 text-center bg-light">
+                                <img src="<%= product.image %>" class="card-img-top" style="height: 220px; object-fit: contain;">
+                            </div>
+                            <div class="card-body text-center pb-0">
+                                <h6 class="fw-bold mb-1"><%= product.name %></h6>
+                                <p class="text-muted small mb-2"><%= product.author %></p>
+                            </div>
+                        </a>
+
+                        <div class="card-body pt-0 text-center d-flex flex-column">
+                            <div class="tooltip-demo mb-3">
+                                <div class="tip-wrap">
+                                    <button class="tip-btn fav-btn" data-tip="Favorilere eklendi ✨" onclick="event.preventDefault(); this.classList.toggle('active')">
+                                        ♡ Favorite
+                                    </button>
+                                </div>
+                                <div class="tip-wrap">
+                                    <button class="tip-btn tip-btn--alt" data-tip="Arkadaşlarınla paylaş →" onclick="event.preventDefault();">
+                                        ↑ Share
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto">
+                                <p class="text-success fw-bold fs-5 mb-3"><%= product.price %> TL</p>
+                                <form action="/products/cart/add/<%= product.id %>" method="POST">
+                                    <button type="submit" class="btn btn-add-cart w-100 rounded-pill py-2">
+                                        <i class="bi bi-cart-plus me-2"></i>Sepete Ekle
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                    </a>
-
-                    <div class="px-3 pb-3">
-                        <form action="/products/cart/add/<%= product.id %>" method="POST">
-                            <button type="submit" class="btn btn-outline-dark rounded-pill w-100">Sepete Ekle</button>
-                        </form>
                     </div>
-
                 </div>
-            </div>
-        <% }) %> </div>
+            <% }) %>
+        <% } %>
+    </div>
 </div>
 
 <%- include('partials/footer') %>
