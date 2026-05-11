@@ -48,9 +48,9 @@
 
 
                 <div class="d-flex align-items-center">
-                    <% if (typeof user !=='undefined' && user) { %>
+                   <% if (currentUser) { %>
                         <span class="me-3 fw-semibold" style="color: #3bb78f;">
-                            Hoş geldin, <%= user.username %>!
+                            Hoş geldin, <%= currentUser.username %>!
                         </span>
                         <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-3">Çıkış Yap</a>
                         <% } else { %>
