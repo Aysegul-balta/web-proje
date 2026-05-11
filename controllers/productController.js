@@ -35,6 +35,7 @@ exports.getAllProductsPage = (req, res) => {
     }
 };
 
+
 // 3. Ürün Detay Sayfası
 exports.getProductDetail = (req, res) => {
     const products = getProductsData();
@@ -112,4 +113,9 @@ exports.decreaseQuantity = (req, res) => {
         }
     }
     res.redirect('/products/cart');
+};
+
+// İletişim sayfasını render eder
+exports.getContactPage = (req, res) => {
+    res.render('contact'); 
 };

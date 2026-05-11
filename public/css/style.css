@@ -35,7 +35,7 @@ header, footer {
     background-color: var(--bookle-green);
     color: white;
     border: none;
-    border-radius: 50px; /* Header'daki tasarımla uyum için */
+    border-radius: 50px;
     padding: 12px 35px;
     transition: all 0.3s ease;
 }
@@ -46,99 +46,259 @@ header, footer {
     color: white;
 }
 
-.btn-dark.rounded-pill {
-    transition: all 0.3s ease;
+/* --- YENİ SEPETE EKLE BUTONU (İstediğin Beyaz/Yeşil Stil) --- */
+.btn-add-cart {
+    background-color: white !important;
+    color: var(--bookle-green) !important;
+    border: 2px solid var(--bookle-green) !important;
+    font-weight: 600;
+    transition: all 0.3s ease !important;
+}
+/* Detay sayfasındaki büyük butonlar için ekstra ayar */
+.btn-add-cart.btn-lg {
+    font-size: 1.2rem;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-.btn-dark.rounded-pill:hover {
-    background-color: var(--bookle-green);
-    border-color: var(--bookle-green);
+.btn-add-cart:hover {
+    background-color: var(--bookle-green) !important;
+    color: white !important;
+    border-color: var(--bookle-green) !important;
     transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(59, 183, 143, 0.3);
 }
 
-/* --- KİTAP KARTLARI (ANA SAYFA) --- */
-.book-card {
+/* --- KİTAP KARTLARI --- */
+.product-card {
     background: white;
     border-radius: 20px;
-    /* transition: transform ve shadow buradaki sihri yaratır */
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
     cursor: pointer;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.05) !important;
 }
 
-/* Kartın üzerine gelince (Hover) yapılacaklar */
-.book-card:hover {
-    transform: scale(1.08) !important; /* %8 büyüme */
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
     z-index: 10;
 }
 
-.book-card img {
-    transition: transform 0.3s ease;
-    object-fit: contain;
+/* --- TOOLTIP VE FAVORİ/PAYLAŞ SİSTEMİ --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+.tooltip-demo {
+    font-family: "Inter", sans-serif;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
 }
 
-.book-card:hover img {
-    transform: scale(1.03); /* Resim de hafifçe büyür */
+.tip-wrap {
+    position: relative;
+    display: inline-block;
 }
 
-.card-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--bookle-dark);
+.tip-btn {
+    font-family: "Inter", sans-serif;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: white;
+    color: #a5a5a5;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.02em;
+    position: relative;
 }
 
-/* --- ÜRÜN DETAY SAYFASI --- */
+/* FAVORİ BUTONU (Kırmızı Efekt) */
+.fav-btn {
+    color: #f87171 !important;
+    border-color: rgba(248, 113, 113, 0.4) !important;
+}
+
+.fav-btn:hover {
+    background: rgba(248, 113, 113, 0.05) !important;
+}
+
+.fav-btn.active {
+    background: #f87171 !important;
+    color: white !important;
+    border-color: #f87171 !important;
+}
+
+/* PAYLAŞ BUTONU */
+.tip-btn--alt {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.25);
+}
+
+/* TOOLTIP BALONCUKLARI */
+.tip-btn::before {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px) scale(0.85);
+    bottom: calc(100% + 10px);
+    white-space: nowrap;
+    padding: 7px 14px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    font-size: 10px;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.tip-btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px) scale(0.85);
+    bottom: calc(100% + 4px);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #1e293b;
+    opacity: 0;
+    z-index: 100;
+}
+
+.tip-btn:hover::before, .tip-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.fav-btn::before { border-left: 3px solid #f87171 !important; }
+.tip-btn--alt::before { border-left: 3px solid #38bdf8 !important; }
+
+/* --- DİĞER SAYFA AYARLARI --- */
 .product-detail {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    padding: 50px 0;
+    padding: 50px;
     background: white;
-    margin-top: 30px;
     border-radius: 30px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.product-detail-image img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.product-detail-info {
-    flex: 1;
-    min-width: 300px;
 }
 
 .product-price {
     font-size: 28px;
     font-weight: bold;
     color: var(--bookle-green);
-    margin: 20px 0;
 }
 
-.product-description {
-    line-height: 1.8;
-    color: #636e72;
-    font-size: 1.05rem;
+a { text-decoration: none !important; }
+
+/* --- ÜRÜN KARTI VE ETKİLEŞİM STİLLERİ --- */
+
+.product-card {
+    transition: all 0.3s ease !important;
 }
 
-/* --- SEPET VE LİNKLER --- */
-a {
-    text-decoration: none !important;
+/* Kartın üzerine gelince yukarı kalkması ve gölge */
+.product-card:hover { 
+    transform: translateY(-10px) !important; 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
 }
 
-.table {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
+/* Linklerin alt çizgisini temizleyelim */
+.product-card a.text-decoration-none:hover {
+    color: inherit;
 }
 
-.table th {
-    background-color: #f1f3f5;
+/* Ara Butonu İçin Yeşil Tonu */
+.btn-success.rounded-pill {
+    background-color: #198754;
     border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-success.rounded-pill:hover {
+    background-color: #157347;
+}
+
+/* Sayfa içindeki resimlerin taşmasını önleyelim */
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Arama kutusuna tıklandığında çıkan mavi çerçeveyi yeşile çevirelim */
+.form-control:focus {
+    border-color: var(--bookle-green) !important; /* Mavi yerine bizim yeşil */
+    box-shadow: 0 0 0 0.25rem rgba(59, 183, 143, 0.25) !important; /* Dıştaki parlamayı da yeşil yapalım */
+    outline: 0;
+}
+
+/* Arama butonuna tıklandığında oluşabilecek benzer efekti de düzeltelim */
+.btn-success:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important;
+}
+
+/* --- SEPET SAYFASI ÖZEL STİLLERİ --- */
+
+/* Artı ve Eksi Butonları */
+.cart-qty-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: 2px solid var(--bookle-green) !important;
+    background-color: white !important;
+    color: var(--bookle-green) !important;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-qty-btn:hover {
+    background-color: var(--bookle-green) !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+/* Alışverişe Devam Et Butonu (Beyaz/Yeşil Stil) */
+.btn-continue-shopping {
+    background-color: white !important;
+    color: #555 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 50px !important;
+    padding: 10px 25px !important;
+    transition: all 0.3s ease !important;
+    font-weight: 500;
+}
+
+.btn-continue-shopping:hover {
+    border-color: var(--bookle-green) !important;
+    color: var(--bookle-green) !important;
+    background-color: rgba(59, 183, 143, 0.05) !important;
+}
+
+/* Ödemeye Geç Butonu (Zaten Güzel Ama Sabitleyelim) */
+.btn-checkout {
+    background-color: var(--bookle-green) !important;
+    border-color: var(--bookle-green) !important;
+    border-radius: 50px !important;
+    padding: 10px 30px !important;
+    color: white !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-checkout:hover {
+    background-color: var(--bookle-hover-green) !important;
+    box-shadow: 0 5px 15px rgba(59, 183, 143, 0.3) !important;
 }

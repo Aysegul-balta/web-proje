@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-<head>
-    <title>
-        <%= product.name %>
-    </title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+  <body>
+<%- include('partials/header') %>
 
-<body>
-
-    <%- include('partials/header') %>
-
-        <div class="product-detail">
-
-            <div class="product-detail-image">
-                <img src="<%= product.image %>">
+<div class="container mt-5 mb-5">
+    <div class="product-detail p-4 p-md-5">
+        <div class="row g-5">
+            
+            <div class="col-md-5 text-center">
+                <div class="product-detail-image">
+                    <img src="<%= product.image %>" alt="<%= product.name %>" class="img-fluid shadow-lg" style="border-radius: 20px; max-height: 500px; object-fit: contain;">
+                </div>
             </div>
 
-            <div class="product-detail-info">
-                <h2>
-                    <%= product.name %>
-                </h2>
+            <div class="col-md-7">
+                <div class="product-detail-info">
+                    <h1 class="fw-bold mb-1"><%= product.name %></h1>
+                    <h4 class="text-muted mb-4"><%= product.author %></h4>
 
-                <p class="product-author">
-                    <%= product.author %>
-                </p>
+                    <div class="product-description mt-4 mb-4">
+                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+                            <%= product.description %>
+                        </p>
+                    </div>
 
-                <p class="product-price">
-                    <%= product.price.toFixed(2) %> TL
-                </p>
+                    <hr class="my-4 opacity-25">
 
-                <form action="/products/cart/add/<%= product.id %>" method="POST">
-                    <button type="submit">Sepete Ekle</button>
-                </form>
+                    <div class="product-price mb-3">
+                        <span class="fw-bold display-6" style="color: var(--bookle-green);">
+                            <%= product.price %> TL
+                        </span>
+                    </div>
 
-                <p class="product-description">
-                    <%= product.description %>
-                </p>
+                    <div class="mt-4">
+                        <form action="/products/cart/add/<%= product.id %>" method="POST">
+                            <button type="submit" class="btn btn-add-cart btn-lg w-100 rounded-pill py-3 shadow-sm">
+                                <i class="bi bi-cart-plus me-2"></i>Sepete Ekle
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
-        </div>
+        </div> </div> </div>
 
-        <%- include('partials/footer') %>
+<%- include('partials/footer') %>
 
-</body>
-
+  </body>
 </html>
