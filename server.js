@@ -1,9 +1,10 @@
 require("dotenv").config();
+
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const flash = require("connect-flash");
-
+const app = express();
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require("./routes/productRoutes");
