@@ -86,6 +86,9 @@ exports.postLogin = async (req, res) => {
   }
 
   req.session.user = user;
+  req.session.cart = [];  // Kullanıcıya özel sepet
+  req.session.user.favorites = user.favorites || [];
+
 
   res.render("loginSuccess", { user });
 };

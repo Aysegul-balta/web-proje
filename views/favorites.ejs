@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5 mb-5">
+    <h2 class="fw-bold mb-4">Favorilerim</h2>
+
+    <% if (products.length === 0) { %>
+        <div class="text-center py-5 bg-white shadow-sm rounded">
+            <h4 class="text-muted mb-3">Henüz favori eklemediniz.</h4>
+            <a href="/products/all" class="btn btn-bookle rounded-pill px-4">Kitaplara Göz At</a>
+        </div>
+    <% } else { %>
+        <div class="row g-4">
+            <% products.forEach(p => { %>
+                <div class="col-md-3">
+                    <div class="card shadow-sm border-0 h-100">
+                        <a href="/products/<%= p.id %>" class="text-decoration-none text-dark">
+                            <img src="<%= p.image %>" class="card-img-top" style="height: 200px; object-fit: contain;">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><%= p.name %></h5>
+                                <p class="text-muted small"><%= p.author %></p>
+                                <p class="text-success fw-bold"><%= p.price %> TL</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>

@@ -7,11 +7,9 @@
     <title>Bookle - Kitap Alışverişi</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -27,35 +25,61 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item">
-                    <a class="nav-link active fw-medium" href="/">Ana Sayfa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/products/all">Ürünlerimiz</a>
-                </li>
-                 <li class="nav-item">
-                        <a class="nav-link fw-medium" href="/products/cart">Sepet</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium" href="/">Ana Sayfa</a>
                     </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">İletişim</a>
-                </li>
-            </ul>
-
-
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/all">Ürünlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">İletişim</a>
+                    </li>
+                </ul>
 
                 <div class="d-flex align-items-center">
-                   <% if (currentUser) { %>
-                        <span class="me-3 fw-semibold" style="color: #3bb78f;">
-                            Hoş geldin, <%= currentUser.username %>!
-                        </span>
-                        <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-3">Çıkış Yap</a>
-                        <% } else { %>
-                            <a href="/register" class="btn btn-bookle rounded-pill shadow-sm">Giriş Yap & Kaydol</a>
+                    
+                    <% if (locals.user) { %>
+                    <div class="me-3">
+                        <a class="nav-link position-relative p-0" href="/favorites">
+                            <i class="bi bi-heart-fill text-danger" style="font-size: 1.5rem;"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" 
+                                  style="font-size: 0.65rem; padding: 0.35em 0.5em;">
+                                <%= (user.favorites) ? user.favorites.length : 0 %>
+                            </span>
+                        </a>
+                    </div>
+                    <% } %>
+
+                    <div class="me-4">
+                        <a class="nav-link position-relative p-0" href="/cart">
+                            <i class="bi bi-cart3 text-dark" style="font-size: 1.6rem;"></i>
+                            <% if (locals.cart && locals.cart.length > 0) { %>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" 
+                                  style="font-size: 0.65rem; padding: 0.35em 0.5em;">
+                                <%= locals.cart.length %>
+                            </span>
+                            <% } else { %>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" style="font-size: 0.65rem;">0</span>
                             <% } %>
+                        </a>
+                    </div>
+
+                    <% if (locals.user) { %>
+                        <div class="d-flex align-items-center bg-light rounded-pill px-3 py-1 shadow-sm border">
+                            <span class="small fw-bold me-2" style="color: #1a2b48;">
+                                <%= user.name || 'Kullanıcı' %>
+                            </span>
+                            <a href="/logout" class="text-danger d-flex align-items-center text-decoration-none" title="Çıkış Yap">
+                                <i class="bi bi-box-arrow-right fs-5"></i>
+                            </a>
+                        </div>
+                    <% } else { %>
+                        <a href="/register" class="btn btn-success rounded-pill px-4 shadow-sm fw-bold">
+                            Giriş Yap
+                        </a>
+                    <% } %>
                 </div>
             </div>
         </div>

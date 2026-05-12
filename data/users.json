@@ -64,5 +64,16 @@
     "name": "elahehhhh",
     "email": "elahehhh@12k.com",
     "password": "$2b$10$I4o1rHzcvBsqFQFcYZDV2eAm4UFiC7IAFmmDa/t1dHADYKTC9a0SG"
+  },
+  {
+    "id": 1778582848583,
+    "name": "Ayşegül Balta",
+    "email": "aysegul.balta2002@gmail.com",
+    "password": "$2b$10$9D7gtZvLX5ixO8Btk/Yf.OLJf7wtSEKyBE34ogrVX/LXSBBk7EBlq",
+    "favorites": [
+      "2",
+      "3"
+    ],
+    "cart": []
   }
 ]
