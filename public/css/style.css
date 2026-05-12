@@ -336,3 +336,8 @@ a { text-decoration: none !important; }
 .btn-paylas-mor:hover i {
     color: white !important;
 }
+/* Arama kutusuna tıklandığında mavi çerçeveyi engelle ve yeşil yap */
+.form-control:focus {
+    border-color: #198754 !important;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important;
+}
