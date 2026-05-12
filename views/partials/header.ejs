@@ -47,16 +47,16 @@
 
 
 
-                <div class="d-flex align-items-center">
-                   <% if (currentUser) { %>
-                        <span class="me-3 fw-semibold" style="color: #3bb78f;">
-                            Hoş geldin, <%= currentUser.username %>!
-                        </span>
-                        <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-3">Çıkış Yap</a>
-                        <% } else { %>
-                            <a href="/register" class="btn btn-bookle rounded-pill shadow-sm">Giriş Yap & Kaydol</a>
-                            <% } %>
-                </div>
+<div class="d-flex align-items-center">
+    <% if (locals.user) { %>
+        <span class="me-3 fw-semibold" style="color: #3bb78f;">
+            Hoş geldin, <%= user.name || user.username %>!
+        </span>
+        <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-3">Çıkış Yap</a>
+    <% } else { %>
+        <a href="/register" class="btn btn-bookle rounded-pill shadow-sm">Giriş Yap & Kaydol</a>
+    <% } %>
+</div>
             </div>
         </div>
     </nav>

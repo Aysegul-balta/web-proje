@@ -6,7 +6,7 @@
             <h2 class="fw-bold mb-4">Tüm Kitaplarımız</h2>
             
             <div class="card border-0 shadow-sm p-1" style="border-radius: 50px; background-color: #f8f9fa;">
-                <form action="/products/all" method="GET" class="d-flex">
+                <form action="/all" method="GET" class="d-flex">
                     <input class="form-control border-0 bg-transparent ps-4" type="search" name="search" 
                            placeholder="Kitap ismi veya yazar ara..." value="<%= searchQuery %>">
                     <button class="btn btn-success rounded-pill px-4 shadow-sm" type="submit">
@@ -19,7 +19,7 @@
                 <div class="mt-3">
                     <span class="badge bg-light text-dark border p-2 rounded-pill">
                         "<%= searchQuery %>" için sonuçlar
-                        <a href="/products/all" class="ms-2 text-danger"><i class="bi bi-x-circle-fill"></i></a>
+                        <a href="/all" class="ms-2 text-danger"><i class="bi bi-x-circle-fill"></i></a>
                     </span>
                 </div>
             <% } %>
@@ -32,7 +32,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="card h-100 border-0 shadow-sm product-card" style="border-radius: 15px; overflow: hidden; transition: all 0.3s ease;">
                         
-                        <a href="/products/<%= product.id %>" class="text-decoration-none text-dark">
+                        <a href="/<%= product.id %>" class="text-decoration-none text-dark">
                             <div class="p-4 text-center bg-light">
                                 <img src="<%= product.image %>" class="card-img-top" style="height: 220px; object-fit: contain;">
                             </div>
@@ -45,20 +45,16 @@
                         <div class="card-body pt-0 text-center d-flex flex-column">
                             <div class="tooltip-demo mb-3">
                                 <div class="tip-wrap">
-                                    <button class="tip-btn fav-btn" data-tip="Favorilere eklendi ✨" onclick="event.preventDefault(); this.classList.toggle('active')">
-                                        ♡ Favorite
-                                    </button>
-                                </div>
-                                <div class="tip-wrap">
-                                    <button class="tip-btn tip-btn--alt" data-tip="Arkadaşlarınla paylaş →" onclick="event.preventDefault();">
-                                        ↑ Share
+                                    <button class="tip-btn fav-btn <%= (locals.user && user.favorites && user.favorites.includes(String(product.id))) ? 'active' : '' %>" 
+                                            onclick="handleFavorite('<%= product.id %>', this)">
+                                        <i class="bi bi-heart-fill"></i> Favori
                                     </button>
                                 </div>
                             </div>
 
                             <div class="mt-auto">
                                 <p class="text-success fw-bold fs-5 mb-3"><%= product.price %> TL</p>
-                                <form action="/products/cart/add/<%= product.id %>" method="POST">
+                                <form action="/cart/add/<%= product.id %>" method="POST">
                                     <button type="submit" class="btn btn-add-cart w-100 rounded-pill py-2">
                                         <i class="bi bi-cart-plus me-2"></i>Sepete Ekle
                                     </button>
@@ -72,11 +68,32 @@
             <div class="col-12 text-center py-5">
                 <i class="bi bi-emoji-frown text-muted display-1"></i>
                 <h4 class="mt-3">Aradığın kitabı bulamadık...</h4>
-                <a href="/products/all" class="btn btn-outline-success rounded-pill mt-2">Tüm Ürünleri Gör</a>
+                <a href="/all" class="btn btn-outline-success rounded-pill mt-2">Tüm Ürünleri Gör</a>
             </div>
         <% } %>
     </div>
 </div>
 
+<script>
+function handleFavorite(productId, button) {
+    fetch('/favorite/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId: productId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            button.classList.toggle('active');
+            // Sayfadaki favori sayısını (header) güncellemek için sayfayı yenileyebiliriz
+            // veya manuel güncelleyebiliriz. En kolayı küçük bir sayfa yenileme:
+            location.reload(); 
+        } else {
+            alert(data.message || "Giriş yapmalısın!");
+        }
+    })
+    .catch(err => console.error("Hata:", err));
+}
+</script>
 
 <%- include('partials/footer') %>
