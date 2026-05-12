@@ -42,15 +42,12 @@
                             </div>
                         </a>
 
-                        <div class="card-body pt-0 text-center d-flex flex-column">
-                            <div class="tooltip-demo mb-3">
-                                <div class="tip-wrap">
-                                    <button class="tip-btn fav-btn <%= (locals.user && user.favorites && user.favorites.includes(String(product.id))) ? 'active' : '' %>" 
-                                            onclick="handleFavorite('<%= product.id %>', this)">
-                                        <i class="bi bi-heart-fill"></i> Favori
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="text-center mb-2">
+                               <button class="btn btn-sm fav-btn <%= (locals.user && user.favorites && user.favorites.includes(String(product.id))) ? 'active' : '' %>" 
+                                   onclick="handleFavorite('<%= product.id %>', this)">
+                              <i class="bi bi-heart-fill"></i> Favori
+                   </button>
+</div>
 
                             <div class="mt-auto">
                                 <p class="text-success fw-bold fs-5 mb-3"><%= product.price %> TL</p>
