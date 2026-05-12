@@ -302,3 +302,37 @@ a { text-decoration: none !important; }
     background-color: var(--bookle-hover-green) !important;
     box-shadow: 0 5px 15px rgba(59, 183, 143, 0.3) !important;
 }
+
+/* Özel Sepet Butonu Stili */
+.btn-outline-boogle {
+    background-color: white;
+    color: #198754; /* Temanın yeşil tonu */
+    border: 2px solid #198754;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-boogle:hover {
+    background-color: #198754; /* Üstüne gelince yeşil olur */
+    color: white; /* Yazı beyaz olur */
+    border-color: #198754;
+    transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+/* Favori: Aktifken Kırmızı */
+.btn-favori-kirmizi.active i {
+    color: #dc3545 !important;
+}
+.btn-favori-kirmizi:hover i {
+    color: #dc3545;
+}
+
+/* Paylaş: Mor Stil */
+.btn-paylas-mor i {
+    color: #6f42c1; /* Mor renk */
+}
+.btn-paylas-mor:hover {
+    background-color: #6f42c1 !important;
+}
+.btn-paylas-mor:hover i {
+    color: white !important;
+}
