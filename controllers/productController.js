@@ -7,6 +7,26 @@ const getProductsData = () => {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 };
 
+const usersFilePath = path.join(__dirname, '../data/users.json');
+
+const saveCartToUser = (req) => {
+    if (!req.session.user) return;
+
+    const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+    const userIndex = users.findIndex(user => {
+        return String(user.id) === String(req.session.user.id);
+    });
+
+    if (userIndex !== -1) {
+        users[userIndex].cart = req.session.cart || [];
+
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+
+        req.session.user.cart = req.session.cart || [];
+    }
+};
+
 // 1. Ana Sayfa (Vitrin - Index)
 exports.getProducts = (req, res) => {
     const products = getProductsData();
@@ -20,21 +40,20 @@ exports.getAllProductsPage = (req, res) => {
         const { search } = req.query;
 
         if (search) {
-            products = products.filter(p => 
-                p.name.toLowerCase().includes(search.toLowerCase()) || 
+            products = products.filter(p =>
+                p.name.toLowerCase().includes(search.toLowerCase()) ||
                 p.author.toLowerCase().includes(search.toLowerCase())
             );
         }
 
-        res.render('products-list', { 
-            products, 
+        res.render('products-list', {
+            products,
             searchQuery: search || ''
         });
     } catch (error) {
         res.status(500).send("Ürünler yüklenemedi.");
     }
 };
-
 
 // 3. Ürün Detay Sayfası
 exports.getProductDetail = (req, res) => {
@@ -45,6 +64,7 @@ exports.getProductDetail = (req, res) => {
     if (!product) {
         return res.status(404).send('Ürün bulunamadı');
     }
+
     res.render('product-detail', { product });
 };
 
@@ -53,11 +73,12 @@ exports.getProductDetail = (req, res) => {
 // Sepet Sayfasını Görüntüle
 exports.getCart = (req, res) => {
     const cart = req.session.cart || [];
+
     const total = cart.reduce((sum, item) => {
         return sum + (parseFloat(item.price) * item.quantity);
     }, 0);
 
-    res.render('cart', { cart, total }); 
+    res.render('cart', { cart, total });
 };
 
 // Sepete Ürün Ekle
@@ -82,40 +103,52 @@ exports.addToCart = (req, res) => {
         req.session.cart.push({ ...product, quantity: 1 });
     }
 
+    saveCartToUser(req);
+
     res.redirect('/products/cart');
 };
 
 // Sepette Miktarı Artır (+)
 exports.increaseQuantity = (req, res) => {
     const productId = parseInt(req.params.id);
+
     if (req.session.cart) {
         const item = req.session.cart.find(p => p.id === productId);
+
         if (item) {
             item.quantity += 1;
         }
     }
+
+    saveCartToUser(req);
+
     res.redirect('/products/cart');
 };
 
 // Sepette Miktarı Azalt (-)
 exports.decreaseQuantity = (req, res) => {
     const productId = parseInt(req.params.id);
+
     if (req.session.cart) {
         const itemIndex = req.session.cart.findIndex(p => p.id === productId);
+
         if (itemIndex > -1) {
             const item = req.session.cart[itemIndex];
+
             if (item.quantity > 1) {
                 item.quantity -= 1;
             } else {
-                // Miktar 1 iken eksiye basılırsa ürünü sepetten tamamen çıkarır
                 req.session.cart.splice(itemIndex, 1);
             }
         }
     }
+
+    saveCartToUser(req);
+
     res.redirect('/products/cart');
 };
 
 // İletişim sayfasını render eder
 exports.getContactPage = (req, res) => {
-    res.render('contact'); 
+    res.render('contact');
 };

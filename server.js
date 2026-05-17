@@ -50,7 +50,7 @@ app.get("/contact", (req, res) => { res.render("contact"); });
 app.get("/", (req, res) => {
     try {
         const products = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "products.json"), "utf8"));
-        res.render("index", { products: products, searchQuery: "" }); 
+        res.render("index", { products: products, searchQuery: "" });
     } catch (err) {
         res.render("index", { products: [], searchQuery: "" });
     }
@@ -66,18 +66,18 @@ app.post("/favorite/toggle", (req, res) => {
     try {
         let users = JSON.parse(fs.readFileSync(usersPath, "utf8"));
         let userIndex = users.findIndex(u => String(u.id) === String(req.session.user.id));
-        
+
         if (userIndex !== -1) {
             // Güvenlik: favorites alanı yoksa oluştur
             if (!users[userIndex].favorites) users[userIndex].favorites = [];
-            
+
             if (users[userIndex].favorites.includes(productId)) {
                 users[userIndex].favorites = users[userIndex].favorites.filter(id => id !== productId);
             } else {
                 users[userIndex].favorites.push(productId);
             }
             fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
-            req.session.user.favorites = users[userIndex].favorites; 
+            req.session.user.favorites = users[userIndex].favorites;
             res.json({ success: true, favorites: users[userIndex].favorites });
         }
     } catch (err) { res.status(500).json({ success: false }); }
@@ -101,58 +101,13 @@ app.get("/cart", (req, res) => {
     res.render("cart", { cart: cart, total: total.toFixed(2) });
 });
 
-// --- SEPETTEKİ ÜRÜNÜ ARTIRMA (+) ---
-app.post("/products/cart/increase/:id", (req, res) => {
-    if (!req.session.user) return res.redirect("/login");
-    const productId = req.params.id;
-    const usersPath = path.join(__dirname, "data", "users.json");
-    try {
-        let users = JSON.parse(fs.readFileSync(usersPath, "utf8"));
-        let userIndex = users.findIndex(u => String(u.id) === String(req.session.user.id));
-        if (userIndex !== -1) {
-            let item = users[userIndex].cart.find(i => String(i.id) === String(productId));
-            if (item) {
-                item.quantity += 1;
-                fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
-                req.session.cart = users[userIndex].cart;
-                req.session.save(() => res.redirect("/cart"));
-            }
-        }
-    } catch (err) { res.redirect("/cart"); }
-});
-
-// --- SEPETTEKİ ÜRÜNÜ AZALTMA (-) ---
-app.post("/products/cart/decrease/:id", (req, res) => {
-    if (!req.session.user) return res.redirect("/login");
-    const productId = req.params.id;
-    const usersPath = path.join(__dirname, "data", "users.json");
-    try {
-        let users = JSON.parse(fs.readFileSync(usersPath, "utf8"));
-        let userIndex = users.findIndex(u => String(u.id) === String(req.session.user.id));
-        if (userIndex !== -1) {
-            let itemIndex = users[userIndex].cart.findIndex(i => String(i.id) === String(productId));
-            if (itemIndex !== -1) {
-                if (users[userIndex].cart[itemIndex].quantity > 1) {
-                    users[userIndex].cart[itemIndex].quantity -= 1;
-                } else {
-                    users[userIndex].cart.splice(itemIndex, 1);
-                }
-                fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
-                req.session.cart = users[userIndex].cart;
-                req.session.save(() => res.redirect("/cart"));
-            }
-        }
-    } catch (err) { res.redirect("/cart"); }
-});
-
 /* -----------------------------------
     3. ROTA SIRALAMASI
 ----------------------------------- */
-app.use("/", authRoutes);      
+app.use("/", authRoutes);
 app.use("/", userRoutes);
 app.use("/checkout", checkoutRoutes);
-app.use("/products", productRoutes); 
-app.use("/", productRoutes);         
+app.use("/products", productRoutes);
 
 app.use((req, res) => { res.status(404).render("404"); });
 
