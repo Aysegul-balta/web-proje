@@ -67,8 +67,8 @@ exports.postLogin = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-  return res.send("Lütfen email ve şifre alanlarını doldurun!");
-}
+    return res.send("Lütfen email ve şifre alanlarını doldurun!");
+  }
 
   const data = fs.readFileSync(usersFile);
   const users = JSON.parse(data);
@@ -86,11 +86,11 @@ exports.postLogin = async (req, res) => {
   }
 
   req.session.user = user;
-  req.session.cart = [];  // Kullanıcıya özel sepet
+  req.session.cart = user.cart || [];  // Kullanıcıya özel sepet
   req.session.user.favorites = user.favorites || [];
 
 
-  res.render("loginSuccess", { user });
+  res.redirect("/");
 };
 
 // GET → profil sayfası

@@ -75,5 +75,18 @@
       "3"
     ],
     "cart": []
+  },
+  {
+    "id": 1779041287037,
+    "name": "Esma Ece",
+    "email": "eceesmakordeve998@gmail.com",
+    "password": "$2b$10$61wvmuASm/CbHLJjXOgAbOdzxgCuL1C2httrkyFwSBCUdwNr27fNW",
+    "favorites": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "cart": []
   }
 ]
